@@ -1,5 +1,5 @@
 {% set name = "ltd-conveyor" %}
-{% set version = "0.7.1" %}
+{% set version = "0.8.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: ebbc5fd9b86e627366e9c25fe9e8b9c16df4e38c702ee73cb93a9a324bd3ed35
+  sha256: fd9df7853b9ec28b89da35d9484209fd97d2b26e7a80a3cc7511bd7be9176ee6
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - ltd = ltdconveyor.cli.main:main
 
@@ -41,7 +41,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'Conveyor command-line app for LSST the Docs (LTD) services and clients.'
+  summary: Conveyor command-line app for LSST the Docs (LTD) services and clients.
   # The remaining entries in this section are optional, but recommended.
   description: |
     LSST the Docs (LTD) is a scalable service for hosting versioned static
