@@ -1,5 +1,5 @@
 {% set name = "ltd-conveyor" %}
-{% set version = "0.7.1" %}
+{% set version = "0.8.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: ebbc5fd9b86e627366e9c25fe9e8b9c16df4e38c702ee73cb93a9a324bd3ed35
+  sha256: f641f845631a6ca5d7f49e90a5f1eb0a17180760f0ab0e13cb6cc9f36043ce91
 
 build:
   noarch: python
