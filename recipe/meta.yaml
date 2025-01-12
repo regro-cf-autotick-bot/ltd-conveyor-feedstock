@@ -6,24 +6,24 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: ebbc5fd9b86e627366e9c25fe9e8b9c16df4e38c702ee73cb93a9a324bd3ed35
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . -vv"
   entry_points:
     - ltd = ltdconveyor.cli.main:main
 
 requirements:
   host:
-    - python >=3.7
+    - python {{ python_min }}
     - pip
     - setuptools
     - setuptools_scm
   run:
-    - python >=3.7
+    - python >={{ python_min }}
     - setuptools_scm
     - boto3
     - requests
@@ -31,6 +31,8 @@ requirements:
     - click
 
 test:
+  requires:
+    - python {{ python_min }}
   commands:
     - ltd --version
     - ltd --help
